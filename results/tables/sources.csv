@@ -1,0 +1,8 @@
+series_id,bls_id,category,url,file,frequency,seasonal_adjustment
+CPIAPPNS,CUUR0000SAA,Apparel,https://fred.stlouisfed.org/series/CPIAPPNS,data/raw/CPIAPPNS.csv,Monthly,Not seasonally adjusted
+CUUR0000SAF11,CUUR0000SAF11,Groceries,https://fred.stlouisfed.org/series/CUUR0000SAF11,data/raw/CUUR0000SAF11.csv,Monthly,Not seasonally adjusted
+CUUR0000SEFV,CUUR0000SEFV,Dining out,https://fred.stlouisfed.org/series/CUUR0000SEFV,data/raw/CUUR0000SEFV.csv,Monthly,Not seasonally adjusted
+CUUR0000SAH1,CUUR0000SAH1,Shelter,https://fred.stlouisfed.org/series/CUUR0000SAH1,data/raw/CUUR0000SAH1.csv,Monthly,Not seasonally adjusted
+CUUR0000SEHF01,CUUR0000SEHF01,Electricity,https://fred.stlouisfed.org/series/CUUR0000SEHF01,data/raw/CUUR0000SEHF01.csv,Monthly,Not seasonally adjusted
+CUUR0000SETB01,CUUR0000SETB01,Gasoline,https://fred.stlouisfed.org/series/CUUR0000SETB01,data/raw/CUUR0000SETB01.csv,Monthly,Not seasonally adjusted
+CPIAUCNS,CUUR0000SA0,Overall CPI,https://fred.stlouisfed.org/series/CPIAUCNS,data/raw/CPIAUCNS.csv,Monthly,Not seasonally adjusted

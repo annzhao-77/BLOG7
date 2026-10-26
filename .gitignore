@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.venv/
+__pycache__/
+.quarto/
+index.html
+index_files/

@@ -1,0 +1,72 @@
+---
+title: "Which Everyday Expenses Have Increased the Most Since 2019?"
+date: 2026-10-24
+description: "Exploring clothing, food, housing, and transportation prices with Plotly."
+categories:
+  - prices
+  - Plotly
+  - Python
+resources:
+  - results/figures/everyday_prices.html
+---
+
+## Motivation
+
+Life has felt different to me since the COVID-19 pandemic, including the cost of everyday purchases. This made me wonder: have prices really risen, and which expenses have increased the most? I explore this question through “衣食住行,” a Chinese expression for clothing, food, housing, and transportation. Using 2019 as a pre-pandemic baseline, I compare price changes across these everyday categories with an interactive chart.
+
+## Data and Method
+
+I use monthly [BLS Consumer Price Index](https://www.bls.gov/cpi/data.htm) data downloaded through FRED. The six categories are apparel, groceries, dining out, shelter, electricity, and gasoline. These indexes track prices paid by urban consumers across U.S. cities. Overall CPI combines a broader basket of goods and services, weighted by consumer spending, and provides a benchmark for the individual categories. For housing, I use Shelter since it covers housing services, including rent and owners’ equivalent rent.
+
+The monthly chart covers January 2019 through December 2025. I use each category's 2019 annual average as its pre-pandemic baseline, avoiding dependence on one starting month. I calculate cumulative price change as:
+
+$$
+100\left(\frac{\text{Index in month }t}{\text{Average index in 2019}}-1\right).
+$$
+
+In the **All categories** tab, readers can also select year-over-year price changes to compare each month with the same month one year earlier. Positive values indicate price increases, while negative values indicate decreases. I include 2018 data so this comparison is available from the start of 2019.
+
+## Explore the Prices
+
+Start with **All categories** to compare cumulative changes since 2019 or year-over-year inflation. Each category has its own tab, with cards showing the latest, highest, and lowest changes relative to 2019. Switch between a **monthly line chart** and a **yearly bar chart**. The monthly view uses each month’s index, while the yearly view uses each year’s average. Both are compared with the 2019 annual average. The annual view uses complete years through 2024 because six series lack October 2025. Select a year to explore individual months, hover for values, or drag to zoom.
+
+Try selecting only gasoline and overall CPI, then switch measures. One shows price changes relative to the 2019 average; the other shows changes relative to the same month a year earlier.
+
+```{=html}
+<style>
+.price-chart-frame {width:100%;height:1050px;border:0;}
+@media(max-width:600px){.price-chart-frame{height:1200px;}}
+</style>
+<iframe id="blog7-chart" class="price-chart-frame" src="results/figures/everyday_prices.html" title="Interactive comparison of everyday prices, 2019 to 2025" loading="lazy"></iframe>
+<script>
+window.addEventListener('message', function(event) {
+  const frame = document.getElementById('blog7-chart');
+  if (frame && event.source === frame.contentWindow && event.data?.type === 'blog7-chart-height'
+      && Number.isFinite(event.data.height) && event.data.height >= 300 && event.data.height <= 2400) {
+    frame.style.height = event.data.height + 'px';
+  }
+});
+</script>
+```
+
+[Open the interactive chart in a separate tab](results/figures/everyday_prices.html){target="_blank"}
+
+## What the Chart Shows
+
+**Electricity and dining out show the largest increases among the six selected categories.** By December 2025, electricity prices were 38.3% above their 2019 average, followed by dining out at 37.1%.
+
+**Shelter and groceries also rose more than overall CPI.** Their increases of 32.1% and 30.6% exceeded the overall increase of 26.8%. Both staying housed and buying food for home became roughly 30% more expensive than in 2019.
+
+**Gasoline prices surged in 2022, then fell substantially from their peak.** They reached 85.4% above the 2019 average in June 2022, compared with 12.7% by December 2025. Russia's invasion of Ukraine contributed to rising crude oil prices and market uncertainty in 2022, according to the [U.S. Energy Information Administration](https://www.eia.gov/todayinenergy/detail.php?id=55099). This helps explain the spike. By December 2025, gasoline was **3.4% cheaper** than a year earlier, but still above its 2019 average.
+
+**Apparel had the smallest endpoint increase, at 3.3%.** Selecting apparel alone makes its recurring within-year swings easier to see. The annual view smooths those monthly swings by comparing complete-year averages. Together, the two views distinguish a temporary peak from a sustained increase in the price level.
+
+## Takeaway
+
+From 2019 to December 2025, overall consumer prices increased by 26.8%, providing context for the increases across all six categories. Electricity and dining out had the largest price increases among the six categories by December 2025. Food prices deserve particular attention: groceries rose by 30.6% and dining out by 37.1%, both more than overall CPI. These increases matter for everyday budgets because food is a recurring expense.
+
+## Limitations
+
+- **Seasonality:** The indexes are not seasonally adjusted, so monthly comparisons include seasonal price movements. Annual averages smooth these fluctuations.
+- **Missing data:** Six series lack October 2025 observations following the [federal shutdown](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm). Their monthly lines have a gap, and annual comparisons stop at 2024 to use complete years for every category.
+

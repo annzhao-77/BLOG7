@@ -1,0 +1,8 @@
+series_id,category,expected_months,valid_months,missing_months,duplicate_dates,baseline_months
+CPIAPPNS,Apparel,96,95,2025-10,0,12
+CUUR0000SAF11,Groceries,96,95,2025-10,0,12
+CUUR0000SEFV,Dining out,96,95,2025-10,0,12
+CUUR0000SAH1,Shelter,96,95,2025-10,0,12
+CUUR0000SEHF01,Electricity,96,95,2025-10,0,12
+CUUR0000SETB01,Gasoline,96,96,,0,12
+CPIAUCNS,Overall CPI,96,95,2025-10,0,12
